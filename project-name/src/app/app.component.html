@@ -2,7 +2,7 @@
 
 <section class="main">
   <h1>Be my friend!</h1>
-  <form action="" #formName="ngForm">
+  <form action="" #formName="ngForm" novalidate (ngSubmit)="onSubmit()">
     <div class="input-group mb-3">
       <span class="input-group-text">First name</span>
       <input type="text" class="form-control" placeholder="First name" name="firstName" #firstName="ngModel" [(ngModel)]="friend.firstName" required [class.error]="firstName.invalid && lastName.touched" pattern="^[a-zA-Z]+$">
@@ -29,7 +29,7 @@
         <option value="PHP">Other</option>
       </select>
     </div>
-    <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
+    <button class="btn btn-primary" type="submit" value="Submit" [disabled]="!formName.valid">Submit</button>
   </form>
 </section>
 
