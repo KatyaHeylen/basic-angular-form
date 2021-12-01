@@ -23,14 +23,15 @@
       <label for="form">Your favourite language: </label>
       <select name="language" id="form" class="dropdown-toggle" #language="ngModel" [(ngModel)]="friend.language" required [class.error]="language.invalid && language.touched">
         <option value="HTML">HTML</option>
-        <option value="CSS">JavaScript</option>
-        <option value="JS">PHP</option>
-        <option value="PHP">CSS</option>
-        <option value="PHP">Other</option>
+        <option value="JavaScript">JavaScript</option>
+        <option value="PHP">PHP</option>
+        <option value="CSS">CSS</option>
+        <option value="Other">Other</option>
       </select>
     </div>
     <button class="btn btn-primary" type="submit" value="Submit" [disabled]="!formName.valid">Submit</button>
   </form>
+  <div *ngFor="let friend of allFriends">{{friend.email}} {{friend.firstName}}</div>
 </section>
 
 <!--<router-outlet></router-outlet>-->
